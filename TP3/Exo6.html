@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suite de Fibonacci</title>
+  </head>
+  <body>
+    <h2>Calcul de la Suite de Fibonacci</h2>
+
+    <button onclick="fibo1()">Calculer le nᵉ terme</button>
+    <p id="resultFibo1"></p>
+
+    <button onclick="fibo2()">
+      Trouver le premier terme supérieur à une valeur
+    </button>
+    <p id="resultFibo2"></p>
+
+    <script>
+      function fibo1() {
+        let n = parseInt(
+          prompt(
+            "Entrez la valeur de n pour calculer le nᵉ terme de Fibonacci :"
+          )
+        );
+        if (isNaN(n) || n < 0) {
+          document.getElementById("resultFibo1").textContent =
+            "Veuillez entrer un nombre entier positif.";
+          return;
+        }
+
+        let a = 0,
+          b = 1,
+          temp;
+        for (let i = 2; i <= n; i++) {
+          temp = a + b;
+          a = b;
+          b = temp;
+        }
+
+        let result = n === 0 ? 0 : n === 1 ? 1 : b;
+        document.getElementById(
+          "resultFibo1"
+        ).textContent = `Le ${n}ᵉ terme de la suite de Fibonacci est ${result}.`;
+      }
+
+      function fibo2() {
+        let valeur = parseInt(
+          prompt(
+            "Entrez une valeur pour trouver le premier terme de Fibonacci supérieur :"
+          )
+        );
+        if (isNaN(valeur) || valeur < 0) {
+          document.getElementById("resultFibo2").textContent =
+            "Veuillez entrer un nombre entier positif.";
+          return;
+        }
+
+        let a = 0,
+          b = 1,
+          temp,
+          rang = 1;
+        while (b <= valeur) {
+          temp = a + b;
+          a = b;
+          b = temp;
+          rang++;
+        }
+
+        document.getElementById(
+          "resultFibo2"
+        ).textContent = `Le premier terme de Fibonacci supérieur à ${valeur} est ${b}, au rang ${rang}.`;
+      }
+    </script>
+  </body>
+</html>

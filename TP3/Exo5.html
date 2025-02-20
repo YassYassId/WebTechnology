@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test si un nombre est premier</title>
+  </head>
+  <body>
+    <h2>Tester si un nombre est premier</h2>
+
+    <script>
+      function estPremier(n) {
+        if (n <= 1) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+          if (n % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      let nombre = prompt("Donnez un entier positif :");
+
+      nombre = parseInt(nombre);
+
+      if (estPremier(nombre)) {
+        document.body.innerHTML += `<p>${nombre} est un nombre premier</p>`;
+      } else {
+        let diviseur = 2;
+        while (nombre % diviseur !== 0) {
+          diviseur++;
+        }
+        document.body.innerHTML += `<p>${nombre} n'est pas un nombre premier, il est divisible par ${diviseur}</p>`;
+      }
+    </script>
+  </body>
+</html>

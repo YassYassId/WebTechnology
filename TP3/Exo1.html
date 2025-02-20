@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convertisseur de Température</title>
+  </head>
+  <body>
+    <h2>Convertisseur de Température</h2>
+    <p id="resultat"></p>
+
+    <script>
+      function convertir() {
+        let tempF = parseFloat(
+          prompt("Entrez une température en Fahrenheit :")
+        );
+        if (isNaN(tempF)) {
+          document.getElementById("resultat").textContent =
+            "Veuillez entrer un nombre valide.";
+          return;
+        }
+        let tempC = (5 / 9) * (tempF - 32);
+        document.getElementById(
+          "resultat"
+        ).textContent = `Cette température équivaut à ${tempC.toFixed(
+          1
+        )} degrés Celsius.`;
+      }
+      convertir();
+    </script>
+  </body>
+</html>

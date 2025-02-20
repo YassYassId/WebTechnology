@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Motif Pyramide Centré</title>
+  </head>
+  <body>
+    <div id="container">
+      <pre id="pyramide"></pre>
+    </div>
+
+    <script>
+      function genererPyramide(taille) {
+        let contenu = "";
+
+        for (let i = 1; i <= taille; i++) {
+          let espaces = " ".repeat(taille - i);
+          let etoiles = "*".repeat(2 * i - 1);
+          contenu += espaces + etoiles + "\n";
+        }
+
+        document.getElementById("pyramide").textContent = contenu;
+      }
+
+      let taille = parseInt(prompt("Entrez la taille de la pyramide :"));
+      if (!isNaN(taille) && taille > 0) {
+        genererPyramide(taille);
+      } else {
+        alert("Veuillez entrer un nombre valide !");
+      }
+    </script>
+  </body>
+</html>

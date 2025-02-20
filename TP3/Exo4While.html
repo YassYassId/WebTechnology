@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motif Escalier</title>
+    <script>
+      function triangle1(taille) {
+        let i = 1;
+
+        while (i <= taille) {
+          let ligne = "*".repeat(i);
+          document.getElementById("resultat1").innerHTML += ligne + "<br>";
+          i++;
+        }
+      }
+
+      function afficherTriangle() {
+        let taille = parseInt(prompt("Entrez la taille du triangle:"));
+        document.getElementById("resultat1").innerHTML = "";
+        triangle1(taille);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Affichage du motif escaliers avec while</h1>
+    <button onclick="afficherTriangle()">Afficher le triangle (while)</button>
+    <div id="resultat1"></div>
+  </body>
+</html>

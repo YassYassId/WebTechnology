@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approximation de la racine carrée</title>
+  </head>
+  <body>
+    <h2>Approximation de la racine carrée</h2>
+    <button onclick="calculerRacine()">Calculer √A</button>
+    <p id="resultat"></p>
+
+    <script>
+      function calculerRacine() {
+        // Demander un nombre A entre 1 et 100
+        let A = parseFloat(prompt("Entrez un nombre A entre 1 et 100 :"));
+
+        // Vérifier que A est bien dans l'intervalle
+        if (isNaN(A) || A < 1 || A > 100) {
+          alert("Veuillez entrer un nombre valide entre 1 et 100.");
+          return;
+        }
+
+        // Initialisation de u0
+        let u = A / 2;
+        const p = 1e-5; // 10⁻⁵
+
+        // Calcul des itérations selon la relation de récurrence
+        while (Math.abs(u * u - A) >= p) {
+          u = 0.5 * (u + A / u);
+        }
+
+        // Affichage du résultat dans la page
+        document.getElementById(
+          "resultat"
+        ).innerHTML = `<p>Pour un nombre A entre 1 et 100: <strong>${A}</strong></p>
+                 <p>Valeur approchée de la racine carrée = <strong>${u}</strong></p>`;
+      }
+    </script>
+  </body>
+</html>

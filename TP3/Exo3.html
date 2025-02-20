@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classer 3 nombres</title>
+    <script>
+      function classerNombres() {
+        let nombre1 = parseInt(prompt("Entrez le 1er nombre:"));
+        let nombre2 = parseInt(prompt("Entrez le 2ème nombre:"));
+        let nombre3 = parseInt(prompt("Entrez le 3ème nombre:"));
+
+        let nombres = [nombre1, nombre2, nombre3];
+
+        nombres.sort(function (a, b) {
+          return a - b;
+        });
+
+        document.getElementById("resultat").innerText =
+          "Les nombres dans l'ordre croissant : " + nombres.join(" ");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Classer 3 nombres</h1>
+    <button onclick="classerNombres()">Classer les nombres</button>
+    <p id="resultat"></p>
+  </body>
+</html>

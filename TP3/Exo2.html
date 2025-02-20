@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversion de Durées</title>
+  </head>
+  <body>
+    <h2>Conversion de Durées</h2>
+    <p id="resultat"></p>
+
+    <script>
+      function convertir() {
+        let totalSeconds = parseInt(prompt("Une durée en secondes :"));
+        if (isNaN(totalSeconds) || totalSeconds < 0) {
+          document.getElementById("resultat").textContent =
+            "Veuillez entrer un nombre valide de secondes.";
+          return;
+        }
+
+        let jours = Math.floor(totalSeconds / (24 * 3600));
+        totalSeconds %= 24 * 3600;
+        let heures = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        let minutes = Math.floor(totalSeconds / 60);
+        let secondes = totalSeconds % 60;
+
+        document.getElementById(
+          "resultat"
+        ).textContent = `Cette durée équivaut à ${jours} jour(s) ${heures} heure(s) ${minutes} minute(s) ${secondes} seconde(s).`;
+      }
+      convertir();
+    </script>
+  </body>
+</html>

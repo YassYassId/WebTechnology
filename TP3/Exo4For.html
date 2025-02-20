@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motif Escalier</title>
+    <script>
+      function triangle2(taille) {
+        for (let i = 1; i <= taille; i++) {
+          let ligne = "*".repeat(i);
+          document.getElementById("resultat2").innerHTML += ligne + "<br>";
+        }
+      }
+
+      function afficherTriangle2() {
+        let taille = parseInt(prompt("Entrez la taille du triangle:"));
+        document.getElementById("resultat2").innerHTML = "";
+        triangle2(taille);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Affichage du motif escaliers avec for</h1>
+    <button onclick="afficherTriangle2()">Afficher le triangle (for)</button>
+    <div id="resultat2"></div>
+  </body>
+</html>
