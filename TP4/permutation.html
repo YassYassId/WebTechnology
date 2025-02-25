@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permutation</title>
+    <style>
+      input {
+        display: flex;
+        padding: 2px;
+        margin: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Permutation</legend>
+      <input id="text1" value="" />
+      <input id="text2" value="" />
+      <button onclick="permuter()">permuter</button>
+    </fieldset>
+
+    <script>
+      function permuter() {
+        var temp = "";
+        if (text1 && text2) {
+          temp = text1.value;
+          text1.value = text2.value;
+          text2.value = temp;
+        } else {
+          window.alert("Veuillez remplire votre contenu!");
+        }
+      }
+    </script>
+  </body>
+</html>

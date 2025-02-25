@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculatrice Avancée</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      .calculator {
+        display: grid;
+        grid-template-columns: repeat(6, 100px);
+        grid-template-rows: minmax(80px, auto) repeat(4, 80px);
+        gap: 5px;
+        background-color: #ccc;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .display {
+        grid-column: span 6;
+        height: 80px;
+        text-align: right;
+        font-size: 2em;
+        padding: 10px;
+        background: white;
+        border-radius: 5px;
+      }
+      button {
+        font-size: 1.5em;
+        padding: 10px;
+        border: none;
+        background-color: gray;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      button:active {
+        background-color: darkgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" class="display" id="display" disabled />
+      <button onclick="clearDisplay()" class="operator">CE</button>
+      <button onclick="appendToDisplay('%')">%</button>
+      <button onclick="appendToDisplay('(')">(</button>
+      <button onclick="appendToDisplay(')')">)</button>
+      <button onclick="appendToDisplay('/')" class="operator">÷</button>
+      <button onclick="appendToDisplay('*')" class="operator">×</button>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('-')" class="operator">-</button>
+      <button onclick="appendToDisplay('+')" class="operator">+</button>
+      <button onclick="calculateResult()" class="equals">=</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('sqrt(')">√</button>
+      <button onclick="appendToDisplay('^')">x^y</button>
+      <button onclick="appendToDisplay('log(')">log</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('cos(')">cos</button>
+      <button onclick="appendToDisplay('tan(')">tan</button>
+      <button onclick="appendToDisplay('sin(')">sin</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+    </div>
+    <script>
+      function appendToDisplay(value) {
+        document.getElementById("display").value += value;
+      }
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+      function calculateResult() {
+        try {
+          let expression = document.getElementById("display").value;
+          expression = expression
+            .replace(/sin\(/g, "Math.sin(")
+            .replace(/cos\(/g, "Math.cos(")
+            .replace(/tan\(/g, "Math.tan(")
+            .replace(/log\(/g, "Math.log10(")
+            .replace(/sqrt\(/g, "Math.sqrt(")
+            .replace(/(\d+)\^(\d+)/g, "Math.pow($1,$2)");
+          document.getElementById("display").value = eval(expression);
+        } catch (error) {
+          alert("Erreur de calcul");
+        }
+      }
+    </script>
+  </body>
+</html>

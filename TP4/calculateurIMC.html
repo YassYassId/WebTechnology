@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur IMC</title>
+    <style>
+      body {
+        text-align: center;
+        margin: 50px;
+      }
+      .container {
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background: #f9f9f9;
+      }
+      input {
+        width: 90%;
+        padding: 10px;
+        margin: 5px;
+        font-size: 18px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: blue;
+        color: white;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      button:hover {
+        background: darkblue;
+      }
+      #resultat {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Calculateur d'IMC</h2>
+      <label>Poids (kg):</label>
+      <input type="number" id="poids" placeholder="Ex: 70" />
+      <label>Taille (m):</label>
+      <input type="number" step="0.01" id="taille" placeholder="Ex: 1.75" />
+      <button onclick="calculerIMC()">Calculer</button>
+      <p id="resultat"></p>
+    </div>
+
+    <script>
+      function calculerIMC() {
+        let poids = parseFloat(document.getElementById("poids").value);
+        let taille = parseFloat(document.getElementById("taille").value);
+        let resultat = document.getElementById("resultat");
+
+        if (isNaN(poids) || isNaN(taille) || taille <= 0 || poids <= 0) {
+          resultat.innerText = "Veuillez entrer des valeurs valides.";
+          return;
+        }
+
+        let imc = (poids / (taille * taille)).toFixed(2);
+        let interpretation = "";
+
+        if (imc < 18.5) {
+          interpretation = "Insuffisance pondérale (maigreur)";
+        } else if (imc < 25) {
+          interpretation = "Corpulence normale";
+        } else if (imc < 30) {
+          interpretation = "Surpoids";
+        } else if (imc < 35) {
+          interpretation = "Obésité modérée";
+        } else if (imc < 40) {
+          interpretation = "Obésité sévère";
+        } else {
+          interpretation = "Obésité morbide ou massive";
+        }
+
+        resultat.innerHTML = `Votre IMC est de <b>${imc}</b>. ${interpretation}.`;
+      }
+    </script>
+  </body>
+</html>
