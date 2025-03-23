@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "56f1",
+      "name": "Yassine IDRISSI",
+      "email": "idrissiy371@gmail.com",
+      "password": "password123",
+      "createdAt": "2025-03-23T01:19:04.048Z"
+    },
+    {
+      "id": "dcdf",
+      "name": "Saad KHADIR",
+      "email": "khadir@gmail.com",
+      "password": "password12345",
+      "createdAt": "2025-03-23T01:28:57.358Z"
+    }
+  ]
+}

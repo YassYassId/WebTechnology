@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "fullName": "John Doe",
+      "email": "john@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "ccaf",
+      "fullName": "Yassine IDRISSI",
+      "email": "idrissiy371@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "e4e4",
+      "fullName": "Saad KHADIR",
+      "email": "khadir@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
